@@ -1,5 +1,13 @@
-var express = require('express')
+var express = require('express');
+var bodyParser = require('body-parser');
+var emailer = require('./emailer');
 var app = express()
+
+app.use(bodyParser.json());
+
+app.use('/api/send', function(req, res) {
+    emailer.sendmail();
+});
 
 app.use('/', express.static('public'))
 
