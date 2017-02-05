@@ -7,6 +7,7 @@ app.use(bodyParser.json());
 
 app.use('/api/send', function(req, res) {
     emailer.sendmail();
+    res.send("sent");
 });
 
 app.use('/', express.static('public'))
