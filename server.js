@@ -8,8 +8,8 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.post('/api/send', function(req, res) {
-    emailer.sendmail(req.body, function() {
-        res.send("sent");
+    emailer.sendmail(req.body, function(email) {
+        res.send(email);
     }, function(err) {
         res.status(500).send(err);
     });

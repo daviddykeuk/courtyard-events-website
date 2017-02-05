@@ -1,24 +1,24 @@
 {
-  "name": "courtyard-events-website",
-  "version": "1.0.0",
-  "description": "",
-  "main": "sever.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/daviddykeuk/courtyard-events-website.git"
-  },
-  "author": "David Dyke (daviddykeuk@gmail.com)",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/daviddykeuk/courtyard-events-website/issues"
-  },
-  "homepage": "https://github.com/daviddykeuk/courtyard-events-website#readme",
-  "dependencies": {
-    "body-parser": "^1.16.0",
-    "express": "^4.14.1",
-    "nodemailer": "^3.0.2"
-  }
+    "name": "courtyard-events-website",
+    "version": "1.0.0",
+    "description": "",
+    "main": "sever.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/daviddykeuk/courtyard-events-website.git"
+    },
+    "author": "David Dyke (daviddykeuk@gmail.com)",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/daviddykeuk/courtyard-events-website/issues"
+    },
+    "homepage": "https://github.com/daviddykeuk/courtyard-events-website#readme",
+    "dependencies": {
+        "body-parser": "^1.16.0",
+        "express": "^4.14.1",
+        "node-mailjet": "^3.0.6"
+    }
 }
