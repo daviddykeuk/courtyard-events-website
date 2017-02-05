@@ -3,11 +3,16 @@ var bodyParser = require('body-parser');
 var emailer = require('./emailer');
 var app = express()
 
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
-app.use('/api/send', function(req, res) {
-    emailer.sendmail();
-    res.send("sent");
+app.post('/api/send', function(req, res) {
+    emailer.sendmail(req.body, function() {
+        res.send("sent");
+    }, function(err) {
+        res.status(500).send(err);
+    });
 });
 
 app.use('/', express.static('public'))

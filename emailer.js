@@ -14,17 +14,24 @@ let mailOptions = {
     from: process.env.emailfrom, // sender address
     to: process.env.emailto, // list of receivers
     subject: 'Message from courtyard events', // Subject line
-    html: '<b>Hello world ?</b>' // html body
+    html: "Hi, <br/><br/> You recieved a message from Courtyard Events<br/><br/>"
 };
 
 // send mail with defined transport object
 module.exports = {
-    sendmail: function() {
+    sendmail: function(data, callback, err) {
+        mailOptions.html += "Name: <strong>" + data.name + "</strong><br/>";
+        mailOptions.html += "Email: <strong>" + data.phone + "</strong><br/>";
+        mailOptions.html += "Phone: <strong>" + data.email + "</strong><br/>";
+        mailOptions.html += "Message: <strong>" + data.message + "</strong><br/>";
         transporter.sendMail(mailOptions, function(error, info) {
             if (error) {
-                return console.log(error);
+                console.log(error);
+                if (err) err(error);
+            } else {
+                console.log('Message %s sent: %s', info.messageId, info.response);
+                callback("sent");
             }
-            console.log('Message %s sent: %s', info.messageId, info.response);
         })
     }
 };
